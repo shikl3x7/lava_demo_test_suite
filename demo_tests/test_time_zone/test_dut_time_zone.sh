@@ -32,5 +32,14 @@ info_msg "Running Demo Test case to verify time zone in DUT"
 #Check if test running in root.
 ! check_root && error_msg "Please run this script as root."
 
+test_time_zone()
+{
+	output=`date  | sed "s/.* //"`
+	if [ "$output" == "UTC" ]; then
+		report_pass "test_time_zone"
+	else
+		report_fail "test_time_zone"
+	fi
+}
 
-
+test_time_zone
