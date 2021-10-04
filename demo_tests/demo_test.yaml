@@ -13,4 +13,4 @@ run:
       steps:
         - cd ./lava_demo_test_suite/demo_tests/
         - /test_time_zone/test_dut_time_zone.sh
-	- ../../utils/send-to-lava.sh ./output/result.txt
+        - ../../utils/send-to-lava.sh ./output/result.txt
