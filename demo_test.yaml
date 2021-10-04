@@ -1,0 +1,15 @@
+metadata:
+      name: shiva_demo_test_suite
+      format: "Demo Test suite created by Shiva"
+      description: "Simple tests created by shiva"
+      maintainer:
+        - shivaschandra_kl@mentor.com
+      os:
+        - debian
+      scope:
+        - functional
+
+run:
+      steps:
+        - pwd
+        - datetime
