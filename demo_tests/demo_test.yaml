@@ -15,4 +15,4 @@ run:
         - cd ./demo_tests/
         - chmod 777 test_time_zone/test_dut_time_zone.sh
         - test_time_zone/test_dut_time_zone.sh
-        - ../../utils/send-to-lava.sho ./utput/result.txt
+        - ../utils/send-to-lava.sho ./output/result.txt
