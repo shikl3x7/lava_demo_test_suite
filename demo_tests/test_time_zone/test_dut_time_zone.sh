@@ -34,12 +34,16 @@ info_msg "Running Demo Test case to verify time zone in DUT"
 
 test_time_zone()
 {
-	output=`date  | sed "s/.* //"`
-	if [ "$output" == "UTC" ]; then
+	#output=$(date  | sed 's/.* //')
+	#output=$(date | awk '{print $NF}')
+	output=$(date)
+	test_seq="UTC"
+	echo $output
+	if $(echo "$output" | grep -q "$test_seq") ;
+	then
 		report_pass "test_time_zone"
 	else
 		report_fail "test_time_zone"
 	fi
 }
-
 test_time_zone
