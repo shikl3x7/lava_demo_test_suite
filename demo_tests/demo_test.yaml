@@ -16,4 +16,5 @@ run:
         - chmod 777 test_time_zone/test_dut_time_zone.sh
         - test_time_zone/test_dut_time_zone.sh
         - pwd
+        - chmod 777 ../utils/send-to-lava.sh
         - ../utils/send-to-lava.sh ./output/result.txt
