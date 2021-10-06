@@ -41,10 +41,14 @@ test_time_zone()
 	echo $output
 	if $(echo "$output" | grep -q "$test_seq") ;
 	then
-		report_pass "Time zone set on DUT is UTC:"
+		report_pass "test_time_zone"
 	else
-		report_fail "Time zone set on DUT is not UTC:"
+		report_fail "test_time_zone"
 	fi
+}
+
+test_dut_time()
+{
 	actual_server_string=$(sntp  time.windows.com)
     info_msg "Read back from time.windows.com : $actual_server_string"
     server_time_string=$(sntp  time.windows.com | grep -o "[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}")
@@ -56,9 +60,9 @@ test_time_zone()
     info_msg "System Time :  $system_time_string"
     if $(echo "$system_time_string" | grep -q "$server_time_string") ;
     then
-        report_pass "Compare DUT time and time.windows.com :"
+        report_pass "test_dut_time"
     else
-        report_fail "Compare DUT time and time.windows.com :"
-    fi
+		report_fail "test_dut_time"	
 }
 test_time_zone
+test_dut_time
