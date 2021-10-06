@@ -65,5 +65,23 @@ test_dut_time()
 		report_fail "test_dut_time"	
 	fi
 }
+
+test_dut_date()
+{
+        date_string=$(sntp  time.windows.com | grep -o "[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}")
+        info_msg "Read back date from time.windows.com : $date_string"
+        system_date=$(date +"%d")
+        system_month=$(date +"%m")
+        system_year=$(date +"%Y")
+        info_msg "Read back date from DUT : $system_year-$system_month-$system_date"
+        if $(echo "$system_year-$system_month-$system_date" | grep -q "$date_string") ;
+        then
+                report_pass "test_dut_date"
+        else
+                report_fail "test_dut_date"
+        fi
+}
+
 test_time_zone
 test_dut_time
+test_dut_date
