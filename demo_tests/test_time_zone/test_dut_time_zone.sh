@@ -63,6 +63,7 @@ test_dut_time()
         report_pass "test_dut_time"
     else
 		report_fail "test_dut_time"	
+	fi
 }
 test_time_zone
 test_dut_time
