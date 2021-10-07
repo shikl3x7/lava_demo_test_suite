@@ -56,9 +56,10 @@ test_dut_time()
 
     actual_system_string=$(date)
     info_msg "Read back system time : $actual_system_string"
-    system_time_string=$(date | grep -o "[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}")
+    system_time_string=$(date +%T)
     info_msg "System Time :  $system_time_string"
-    if $(echo "$system_time_string" | grep -q "$server_time_string") ;
+    #if $(echo "$system_time_string" | grep -q "$server_time_string") ;
+	if [[ "$system_time_string" == "$server_time_string" ]]
     then
         report_pass "test_dut_time"
     else
@@ -74,7 +75,7 @@ test_dut_date()
         system_month=$(date +"%m")
         system_year=$(date +"%Y")
         info_msg "Read back date from DUT : $system_year-$system_month-$system_date"
-        if $(echo "$system_year-$system_month-$system_date" | grep -q "$date_string") ;
+        if [[ "$system_year-$system_month-$system_date" == "$date_string" ]] 
         then
                 report_pass "test_dut_date"
         else
